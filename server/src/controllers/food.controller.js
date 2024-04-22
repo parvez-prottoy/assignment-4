@@ -1,5 +1,31 @@
 const FoodModel = require("../models/food.model");
 
+const updateFood = async (req, res) => {
+  try {
+    const { foodId } = req.params;
+    const { name, code, image, category, quantity, price } = req.body;
+    const updateFood = await FoodModel.findOne({ _id: foodId });
+    console.log(updateFood);
+    updateFood.name = name ?? updateFood.name;
+    updateFood.code = code ?? updateFood.code;
+    updateFood.image = image ?? updateFood.image;
+    updateFood.category = category ?? updateFood.category;
+    updateFood.quantity = quantity ?? updateFood.quantity;
+    updateFood.price = price ?? updateFood.price;
+    await updateFood.save();
+    res.status(200).json({
+      success: true,
+      message: "Update Food",
+      data: updateFood,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
 const deleteFood = async (req, res) => {
   try {
     const { foodId } = req.params;
@@ -59,4 +85,4 @@ const createFood = async (req, res) => {
   }
 };
 
-module.exports = { createFood, readFoods, deleteFood };
+module.exports = { createFood, readFoods, deleteFood, updateFood };
