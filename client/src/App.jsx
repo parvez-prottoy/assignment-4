@@ -1,8 +1,14 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CreateFood from "./pages/CreateFood";
 
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline text-red-500">Hello world!</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CreateFood />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
