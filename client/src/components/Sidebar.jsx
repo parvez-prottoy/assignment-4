@@ -11,11 +11,13 @@ const sidebarJson = {
       id: "list-001",
       icon: "create-outline",
       text: "Create Food",
+      to: "/",
     },
     {
       id: "list-002",
       icon: "document-text-outline",
       text: "All Foods",
+      to: "/allFoods",
     },
   ],
 };
@@ -32,8 +34,8 @@ const Sidebar = () => {
       <div className="sidebar_menu mt-6">
         <p className="text-cls-3">MENU</p>
         <ul className="mt-4">
-          {sidebarJson.lists.map((lits) => (
-            <List key={lits.id} {...lits} />
+          {sidebarJson.lists.map((list) => (
+            <List key={list.id} {...list} />
           ))}
         </ul>
       </div>
