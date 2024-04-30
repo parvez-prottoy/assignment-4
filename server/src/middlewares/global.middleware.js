@@ -8,7 +8,6 @@ const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 3000 });
 
 const middleware = [
   morgan("dev"),
-  cors(),
   helmet(),
   hpp(),
   express.json({ limit: "50mb" }),

@@ -1,9 +1,17 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
 const { notFoundHandler, errorHandler } = require("../src/utility/error/error");
 // const routes = require("../src/routes/index.route");
 const router = require("../src/routes/food.route");
 // global middleware
+const corsConfig = {
+  origin: "*",
+  credential: true,
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+};
+app.options("", cors(corsConfig));
 app.use(require("../src/middlewares/global.middleware"));
 // routers
 // app.set("etag", false);
