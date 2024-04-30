@@ -12,6 +12,6 @@ router.patch("/update/:foodId", updateFood);
 router.delete("/delete/:foodId", deleteFood);
 router.post("/", createFood);
 router.get("/food/:foodId", getFoodById);
-router.get("/", readFoods);
+router.get("/get", readFoods);
 
 module.exports = router;
