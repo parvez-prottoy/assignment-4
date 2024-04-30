@@ -17,6 +17,7 @@ const AllFoods = () => {
     setFoods(res.data["data"]);
   };
   const handleDelete = async (id) => {
+    console.log("handle delete");
     await axios.delete(`${baseUrl}/foods/delete/${id}`);
     await getAllFoods();
   };

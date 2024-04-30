@@ -4,38 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import MasterLayout from "../layouts/MasterLayout";
 import { baseUrl } from "../utility/APICalling";
-const jsonInput = [
-  {
-    id: "input-001",
-    label: "Food Name",
-    name: "name",
-  },
-  {
-    id: "input-002",
-    label: "Food Code",
-    name: "code",
-  },
-  {
-    id: "input-003",
-    label: "Food Image",
-    name: "image",
-  },
-  {
-    id: "input-004",
-    label: "Food Category ",
-    name: "category",
-  },
-  {
-    id: "input-005",
-    label: "QTY",
-    name: "quantity",
-  },
-  {
-    id: "input-006",
-    label: "Price",
-    name: "price",
-  },
-];
+
 const UpdateFood = () => {
   const [foodData, setFoodData] = useState(null);
   const navigate = useNavigate();
@@ -49,7 +18,6 @@ const UpdateFood = () => {
       await getFoodById(id);
     })();
   }, []);
-  console.log(foodData);
   const updateFood = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -68,7 +36,7 @@ const UpdateFood = () => {
       price,
     };
     await axios.patch(`${baseUrl}/foods/update/${id}`, data);
-    navigate("/allFoods");
+    navigate("/");
   };
   return (
     <MasterLayout>

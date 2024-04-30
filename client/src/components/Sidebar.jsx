@@ -11,13 +11,13 @@ const sidebarJson = {
       id: "list-001",
       icon: "create-outline",
       text: "Create Food",
-      to: "/",
+      to: "/createFood",
     },
     {
       id: "list-002",
       icon: "document-text-outline",
       text: "All Foods",
-      to: "/allFoods",
+      to: "/",
     },
   ],
 };

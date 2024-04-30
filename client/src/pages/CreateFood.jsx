@@ -57,7 +57,7 @@ const CreateFood = () => {
       price,
     };
     await axios.post(`${baseUrl}/foods`, data);
-    navigate("/allFoods");
+    navigate("/");
   };
   return (
     <MasterLayout>
