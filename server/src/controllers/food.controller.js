@@ -26,6 +26,23 @@ const updateFood = async (req, res) => {
   }
 };
 
+const getFoodById = async (req, res) => {
+  try {
+    const { foodId } = req.params;
+    const food = await FoodModel.findOne({ _id: foodId });
+    res.status(200).json({
+      success: true,
+      message: "Food",
+      data: food,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
 const deleteFood = async (req, res) => {
   try {
     const { foodId } = req.params;
@@ -85,4 +102,4 @@ const createFood = async (req, res) => {
   }
 };
 
-module.exports = { createFood, readFoods, deleteFood, updateFood };
+module.exports = { createFood, readFoods, deleteFood, updateFood, getFoodById };

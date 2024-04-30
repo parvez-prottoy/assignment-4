@@ -15,7 +15,7 @@ app.use(errorHandler);
 
 // Add React Front End Routing
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "/client", "dist", "index.html"));
 });
 
 module.exports = app;
