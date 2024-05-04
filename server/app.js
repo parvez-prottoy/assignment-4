@@ -12,9 +12,14 @@ const helmet = require("helmet");
 const hpp = require("hpp");
 const rateLimit = require("express-rate-limit");
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 3000 });
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 app.use([
   morgan("dev"),
-  cors(),
+  cors(corsOptions),
   helmet(),
   hpp(),
   express.json({ limit: "50mb" }),
