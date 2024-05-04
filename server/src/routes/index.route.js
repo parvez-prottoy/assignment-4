@@ -1,9 +1,17 @@
+const {
+  updateFood,
+  deleteFood,
+  createFood,
+  getFoodById,
+  readFoods,
+} = require("../controllers/food.controller");
+
 const router = require("express").Router();
 
-const baseRoute = require("./base.route");
-const foodRoute = require("./food.route");
-
-router.use("/", baseRoute);
-router.use("/api/v1/foods", foodRoute);
+router.patch("/update/:foodId", updateFood);
+router.delete("/delete/:foodId", deleteFood);
+router.post("/", createFood);
+router.get("/food/:foodId", getFoodById);
+router.get("/", readFoods);
 
 module.exports = router;
